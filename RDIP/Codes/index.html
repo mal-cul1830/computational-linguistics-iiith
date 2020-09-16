@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>
+            Index
+        </title>
+        <style></style>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script>
+        $(document).ready(function(){
+            $("select").change(function(){
+                $(this).find("option:selected").each(function(){
+                    var optionValue = $(this).attr("value");
+                    if(optionValue){
+                        $(".box").not("." + optionValue).hide();
+                        $("." + optionValue).show();
+                    } else{
+                        $(".box").hide();
+                    }
+                });
+            }).change();
+        });
+        </script>
+    </head>
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+    <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+    </script> 
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"> 
+    </script> 
+    <script src= "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> 
+    </script> 
+    <body>
+        <div class="row"></div>
+        <hr>
+        <br>
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="dropdown">
+                    <label for="langs">Select a language:</label>
+                    <select name="langs" id="langs">
+                        <option value="selectlang">-- Select a language --</option>
+                        <option value="eng">English</option>
+                        <option value="hindi">Hindi</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="eng box" id = 'eng box' style = "display:none;">
+                    <p>
+                        Form a sentence (Declarative or Interrogative or any other type) from the given words(select the buttons in proper order)
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="hindi box" id = 'hindi box' style = "display:none;">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <p>
+                        Form a sentence (Declarative or Interrogative or any other type) from the given words(select the buttons in proper order)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

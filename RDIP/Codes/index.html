@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>
-            Index
+            Experiment 1
         </title>
         <style>
             .box{
@@ -20,9 +20,25 @@
             .result{
                 margin: auto;
             }
+            select{
+                background-color: black;
+                color: white;
+                padding: 0.5rem 0.5rem;
+            }
+            .sent-1{
+                color: rgb(0, 0, 105);
+                font-weight: bold;
+            }
+            .sent-2{
+                color: rgb(72, 72, 163);
+            }
+            .formed-title{
+                color: rgb(0, 88, 34);
+            }
         </style>
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script src="index.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
     <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -37,8 +53,12 @@
         <div class="row"></div>
         <hr>
         <br>
+        <h1 style = "text-align: center;">Computational Linguistics</h1>
+        <br>
+        <hr>
+        <br>
         <div class="row">
-            <div class="col-md-2"></div>
+            <div class="col-md-3"></div>
             <div class="col-md-6">
                 <div class="dropdown">
                     <label for="langs">Select a language:</label>
@@ -51,15 +71,16 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2"></div>
+            <div class="col-md-3"></div>
             <div class="col-md-6">
                 <div class="eng box" id = 'eng box' style = "display:none;">
                     <p class = 'sent-1'>
-                        Form a sentence (Declarative or Interrogative or any other type) from the given words(select the buttons in proper order)
+                        Form a sentence (Declarative or Interrogative or any other type) from the given words
                     </p>
                     <p class = 'sent-2' style = "font-style: italic;">(select the buttons in proper order)</p>
-                    <p id = 'formed-title'>Formed Sentence <i>after selecting words):</i></p>
                     <div id = 'engelements'>     .</div>
+                    <br>
+                    <p class = 'formed-title'>Formed Sentence <i>(after selecting words):</i></p>
                     <hr>
                     <p id = 'sentencee' class = 'sent'></p>
                     <hr>
@@ -67,7 +88,7 @@
             </div>
         </div>
             <div class="row">
-                <div class="col-md-2"></div>
+                <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <div class="hindi box" id = 'hindi box' style = "display:none;">
                         
@@ -75,7 +96,7 @@
                             Form a sentence (Declarative or Interrogative or any other type) from the given words(select the buttons in proper order)
                         </p>
                         <p class = 'sent-2' style = "font-style: italic;">(select the buttons in proper order)</p>
-                        <p id = 'formed-title'>Formed Sentence <i>after selecting words):</i></p>
+                        <p class = 'formed-title'>Formed Sentence <i>(after selecting words):</i></p>
                     <div id = 'hindielements'>    .</div>
                     <hr>
                     <p id = 'sentenceh' class = 'sent'></p>
@@ -85,7 +106,7 @@
             </div>
         <div id = 'hidden'>
             <div class="row">
-                <div class="col-md-2"></div>
+                <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <hr>
                     <br>
@@ -95,7 +116,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-2"></div>
+                <div class="col-md-3"></div>
                 <div class="col-md-6">
                     <hr>
                     <br>

@@ -4,9 +4,21 @@
             Index
         </title>
         <style>
-            .engelements{
+            .box{
                 text-align: center;
-                background-color: pink;
+            }
+            .sent{
+                font-size: x-large;
+            }
+            .res-text{
+                text-align: center;
+                font-size: 40px;
+            }
+            .col-md-6{
+                text-align: center;
+            }
+            .result{
+                margin: auto;
             }
         </style>
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -26,7 +38,7 @@
         <hr>
         <br>
         <div class="row">
-            <div class="col-md-4"></div>
+            <div class="col-md-2"></div>
             <div class="col-md-6">
                 <div class="dropdown">
                     <label for="langs">Select a language:</label>
@@ -39,7 +51,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4"></div>
+            <div class="col-md-2"></div>
             <div class="col-md-6">
                 <div class="eng box" id = 'eng box' style = "display:none;">
                     <p class = 'sent-1'>
@@ -48,44 +60,51 @@
                     <p class = 'sent-2' style = "font-style: italic;">(select the buttons in proper order)</p>
                     <p id = 'formed-title'>Formed Sentence <i>after selecting words):</i></p>
                     <div id = 'engelements'>     .</div>
+                    <hr>
                     <p id = 'sentencee' class = 'sent'></p>
+                    <hr>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-6">
-                <div class="hindi box" id = 'hindi box' style = "display:none;">
-                    <p class = 'sent-1'>
-                        Form a sentence (Declarative or Interrogative or any other type) from the given words(select the buttons in proper order)
-                    </p>
-                    <p class = 'sent-2' style = "font-style: italic;">(select the buttons in proper order)</p>
-                    <p id = 'formed-title'>Formed Sentence <i>after selecting words):</i></p>
-                   <div id = 'hindielements'>    .</div>
-                   <p id = 'sentenceh' class = 'sent'></p>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-6">
+                    <div class="hindi box" id = 'hindi box' style = "display:none;">
+                        
+                        <p class = 'sent-1'>
+                            Form a sentence (Declarative or Interrogative or any other type) from the given words(select the buttons in proper order)
+                        </p>
+                        <p class = 'sent-2' style = "font-style: italic;">(select the buttons in proper order)</p>
+                        <p id = 'formed-title'>Formed Sentence <i>after selecting words):</i></p>
+                    <div id = 'hindielements'>    .</div>
+                    <hr>
+                    <p id = 'sentenceh' class = 'sent'></p>
+                    <hr>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-6">
-                <hr>
-                <br>
-                <input type = 'button' id = 'reformbutton' value = 'Re-form the sentence' style = "display:none;" onclick = "reform_onclick()"/>
-                <br>
-                <input type = 'button' id = 'checkbutton' value = 'Check the correctness of this sentence' style = "display:none;" onclick = " correct_onclick()"/>
+        <div id = 'hidden'>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-6">
+                    <hr>
+                    <br>
+                    <input type = 'button' id = 'reformbutton' value = 'Re-form the sentence' style = "display:none;" onclick = "reform_onclick()"/>
+                    <br>
+                    <input type = 'button' id = 'checkbutton' value = 'Check the correctness of this sentence' style = "display:none;" onclick = " correct_onclick()"/>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-6">
-                <hr>
-                <br>
-                <div class="result">
-                    <p id='res-text'></p>
-                    <input class = 'show-correct' id = 'show-correct' type = 'button' style = 'display:none;' value = 'Get correct sentence' onclick = "show_onclick()">
-                    <div id="correct-ans"></div>
-                    <input class = 'hide-correct' id = 'hide-correct' type = 'button' style = 'display:none;' value = 'Hide the correct sentence' onclick = "hide_onclick()">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-6">
+                    <hr>
+                    <br>
+                    <div class="result">
+                        <p id='res-text' class = 'res-text'></p>
+                        <input class = 'show-correct' id = 'show-correct' type = 'button' style = 'display:none;' value = 'Get correct sentence' onclick = "show_onclick()">
+                        <div id="correct-ans"></div>
+                        <input class = 'hide-correct' id = 'hide-correct' type = 'button' style = 'display:none;' value = 'Hide the correct sentence' onclick = "hide_onclick()">
+                    </div>
                 </div>
             </div>
         </div>

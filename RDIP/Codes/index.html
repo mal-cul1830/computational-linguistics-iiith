@@ -72,7 +72,20 @@
                 <hr>
                 <br>
                 <input type = 'button' id = 'reformbutton' value = 'Re-form the sentence' style = "display:none;" onclick = "reform_onclick()"/>
-                <input type = 'button' id = 'checkbutton' value = 'Check the correctness of this sentence' style = "display:none;"/>
+                <br>
+                <input type = 'button' id = 'checkbutton' value = 'Check the correctness of this sentence' style = "display:none;" onclick = " correct_onclick()"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-6">
+                <hr>
+                <br>
+                <div class="result">
+                    <p id='res-text'></p>
+                    <input id = 'show-correct' type = 'button' style = 'display:none;' value = 'Get correct sentence' onclick = "show_onclick()">
+                    <div class="correct-ans"></div>
+                </div>
             </div>
         </div>
     </body>

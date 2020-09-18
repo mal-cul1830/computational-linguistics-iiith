@@ -56,6 +56,7 @@
         <hr>
         <br>
         <div class="row">
+            <div class="col-md-3"></div>
             <div class="col-md-6">
                 <div class="dropdown">
                     <label for="corps">Select a Corpus:</label>
@@ -65,6 +66,127 @@
                         <option value="corpus2">Corpus 2</option>
                         <option value="corpus3">Corpus 3</option>
                     </select>
+                </div>
+                <hr>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="corpus1 box">
+                    <div class = 'corpuspara' id = 'para1'></div>
+                    <br>
+                    <hr>
+                    <p class = "mes1">Enter the correct number of tokens and types from the corpus:</p>
+                    <table style = "align-self: center;margin: 0 auto;">
+                        <tr>
+                            <td>
+                                #tokens
+                            </td>
+                            <td>
+                                <input type = 'text' name = 'tokens1' id = 'tokens1'/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                #types
+                            </td>
+                            <td>
+                                <input type = 'text' name = 'types1' id = 'types1'/>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <hr>
+                    <input type = 'button' id = 'submit' name = 'submit' value = "Submit" onclick = "submit_onclick()"/>
+                    <div id = 'wrong1' class = 'wrong' style = 'display: none;'>
+                        <p style = "color: red;">
+                            Wrong Answer
+                        </p>
+                    </div>
+                    <div id="right1" style = 'display: none;'>
+                        <p style = "color:green;">
+                            Right Answer
+                        </p>
+                        <input type = 'button' value= 'continue' onclick = 'click()' id = 'continue1' class = 'continue'/>
+                    </div>
+                </div>
+                <div class="corpus2 box">
+                    <div class = 'corpuspara' id = 'para2'></div>
+                    <br>
+                    <hr>
+                    <p class = "mes1">Enter the correct number of tokens and types from the corpus:</p>
+                    <table>
+                        <tr>
+                            <td>
+                                #tokens
+                            </td>
+                            <td>
+                                <input type = 'text' name = 'tokens2' id = 'tokens2'/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                #types
+                            </td>
+                            <td>
+                                <input type = 'text' name = 'types2' id = 'types2'/>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <hr>
+                    <input type = 'button' id = 'submit' name = 'submit' value = "Submit" onclick = "submit_onclick()"/>
+                    <div id = 'wrong2' class = 'wrong' style = 'display: none;'>
+                        <p style = "color: red;">
+                            Wrong Answer
+                        </p>
+                    </div>
+                    <div id="right2" style = 'display: none;'>
+                        <p style = "color:green;">
+                            Right Answer
+                        </p>
+                        <input type = 'button' value= 'continue' onclick = 'continue_onclick()' id = 'continue2' class = 'continue'/>
+                    </div>
+                </div>
+                <div class="corpus3 box" style = "text-align: center;">
+                    <div class = 'corpuspara' id = 'para3'></div>
+                    <br>
+                    <hr>
+                    <p class = "mes1">Enter the correct number of tokens and types from the corpus:</p>
+                    <table style = "text-align: center;">
+                        <tr>
+                            <td>
+                                #tokens
+                            </td>
+                            <td>
+                                <input type = 'text' name = 'tokens3' id = 'tokens3'/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                #types
+                            </td>
+                            <td>
+                                <input type = 'text' name = 'types3' id = 'types3'/>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <hr>
+                    <input type = 'button' id = 'submit' name = 'submit' value = "Submit" onclick = "submit_onclick()"/>
+                    <div id = 'wrong3' class = 'wrong' style = 'display: none;'>
+                        <p style = "color: red;">
+                            Wrong Answer
+                        </p>
+                    </div>
+                    <div id="right3" style = 'display: none;'>
+                        <p style = "color:green;">
+                            Right Answer
+                        </p>
+                        <input type = 'button' value= 'continue' onclick = 'continue_onclick()' id = 'continue3' class = 'continue'/>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>
+            Experiment 1
+        </title>
+        <style>
+            .box{
+                text-align: center;
+            }
+            .sent{
+                font-size: x-large;
+            }
+            .res-text{
+                text-align: center;
+                font-size: 40px;
+            }
+            .col-md-6{
+                text-align: center;
+            }
+            .result{
+                margin: auto;
+            }
+            select{
+                background-color: black;
+                color: white;
+                padding: 0.5rem 0.5rem;
+            }
+            .sent-1{
+                color: rgb(0, 0, 105);
+                font-weight: bold;
+            }
+            .sent-2{
+                color: rgb(72, 72, 163);
+            }
+            .formed-title{
+                color: rgb(0, 88, 34);
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="experiment2.js"></script>
+        <script src="../Libraries/require.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+    <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script> 
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"> </script> 
+    <script src= "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> </script> 
+    <body>
+        <div class="row"></div>
+        <hr>
+        <br>
+        <h1 style = "text-align: center;">Computational Linguistics</h1>
+        <br>
+        <hr>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="dropdown">
+                    <label for="corps">Select a Corpus:</label>
+                    <select name="corps" id="corps">
+                        <option value="selectcorps">-- Select a Corpus --</option>
+                        <option value="corpus1">Corpus 1</option>
+                        <option value="corpus2">Corpus 2</option>
+                        <option value="corpus3">Corpus 3</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

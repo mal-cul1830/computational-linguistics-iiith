@@ -96,5 +96,9 @@ function continue_onclick(){
     let e = document.getElementById('corps');
     let optionValue = e.options[e.selectedIndex].value.split(' ').join().toLowerCase();
     let n = optionValue[6];
+    document.getElementById('right'+n).style.display = 'none';
+    console.log(n);
+    document.getElementById('submit'+n).style.display = 'none';
+    document.getElementById('root'+n).style.display = 'block';
 }
 

@@ -99,17 +99,23 @@
                     </table>
                     <br>
                     <hr>
-                    <input type = 'button' id = 'submit' name = 'submit' value = "Submit" onclick = "submit_onclick()"/>
+                    <input  type = 'button' id = 'submit1' class = 'submita' name = 'submit1' value = "Submit"  onclick = "submit_onclick()"/>
                     <div id = 'wrong1' class = 'wrong' style = 'display: none;'>
                         <p style = "color: red;">
                             Wrong Answer
                         </p>
                     </div>
                     <div id="right1" style = 'display: none;'>
-                        <p style = "color:green;">
+                        <p style = "color:green;" id = "m1">
                             Right Answer
                         </p>
-                        <input type = 'button' value= 'continue' onclick = 'click()' id = 'continue1' class = 'continue'/>
+                        <input type = 'button' value= 'continue' onclick = 'continue_onclick()' id = 'continue1' class = 'continue'/>
+                    </div>
+                    <div id = "root1" class="root" style = "display: none;">
+                        <p id = "rootm1">Now, consider all the tokens with the same 'root' word to be of the same type. Recalculate the number of types.</p>
+                        <br>
+                        <p id = "rootmm1">#new types:</p>
+                        <input type = 'text' id = "rooti1" name = 'root1' class = 'rooti'/>
                     </div>
                 </div>
                 <div class="corpus2 box">
@@ -137,18 +143,24 @@
                     </table>
                     <br>
                     <hr>
-                    <input type = 'button' id = 'submit' name = 'submit' value = "Submit" onclick = "submit_onclick()"/>
-                    <div id = 'wrong2' class = 'wrong' style = 'display: none;'>
-                        <p style = "color: red;">
-                            Wrong Answer
-                        </p>
-                    </div>
-                    <div id="right2" style = 'display: none;'>
-                        <p style = "color:green;">
-                            Right Answer
-                        </p>
-                        <input type = 'button' value= 'continue' onclick = 'continue_onclick()' id = 'continue2' class = 'continue'/>
-                    </div>
+                    <input type = 'button' id = 'submit2' class = 'submita' name = 'submit2' value = "Submit" onclick = "submit_onclick()"/>
+                        <div id = 'wrong2' class = 'wrong' style = 'display: none;'>
+                            <p style = "color: red;">
+                                Wrong Answer
+                            </p>
+                        </div>
+                        <div id="right2" style = 'display: none;'>
+                            <p style = "color:green;" id = "m2">
+                                Right Answer
+                            </p>
+                            <input type = 'button' value= 'continue' onclick = 'continue_onclick()' id = 'continue2' class = 'continue'/>
+                        </div>
+                        <div id = "root2" class="root" style = "display: none;">
+                            <p id = "rootm2">Now, consider all the tokens with the same 'root' word to be of the same type. Recalculate the number of types.</p>
+                            <br>
+                            <p class = 'rootmm' id = "rootmm2">#new types:</p>
+                            <input type = 'text' class = 'rooti' id = "rooti2" name = 'root2'/>
+                        </div>
                 </div>
                 <div class="corpus3 box" style = "text-align: center;">
                     <div class = 'corpuspara' id = 'para3'></div>
@@ -175,17 +187,23 @@
                     </table>
                     <br>
                     <hr>
-                    <input type = 'button' id = 'submit' name = 'submit' value = "Submit" onclick = "submit_onclick()"/>
+                    <input  type = 'button' id = 'submit3' class = 'submita' name = 'submit3' value = "Submit"  onclick = "submit_onclick()"/>
                     <div id = 'wrong3' class = 'wrong' style = 'display: none;'>
                         <p style = "color: red;">
                             Wrong Answer
                         </p>
                     </div>
                     <div id="right3" style = 'display: none;'>
-                        <p style = "color:green;">
+                        <p style = "color:green;" id = "m3">
                             Right Answer
                         </p>
                         <input type = 'button' value= 'continue' onclick = 'continue_onclick()' id = 'continue3' class = 'continue'/>
+                    </div>
+                    <div id = "root3" class="root" style = "display: none;">
+                        <p id = "rootm3">Now, consider all the tokens with the same 'root' word to be of the same type. Recalculate the number of types.</p>
+                        <br>
+                        <p class = 'rootmm' id = "rootmm2">#new types:</p>
+                        <input type = 'text' id = "rooti3" name = 'root3' class = 'rooti'/>
                     </div>
                 </div>
             </div>

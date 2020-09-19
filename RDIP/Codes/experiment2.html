@@ -40,7 +40,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <script src = 'experiment2.js'></script>
         <script src="../Libraries/require.js"></script>
-        <script src="../Libraries/node_modules/snowball/stemmer/lib/Snowball.min.js"></script>
+        <script src="../Libraries/node_modules/snowball/stemmer/lib/Snowball.js"></script>
     </head>
     <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -117,6 +117,10 @@
                         <br>
                         <p id = "rootmm1">#new types:</p>
                         <input type = 'text' id = "rooti1" name = 'root1' class = 'rooti'/>
+                        <br>
+                        <input type = 'button' id = 'rsubmit1' class = 'rsubmit' value = 'Submit' onclick = "submit2_onclick()"/>
+                        <br>
+                        <p id = 'final1' class = 'final' display></p>
                     </div>
                 </div>
                 <div class="corpus2 box">
@@ -161,6 +165,10 @@
                             <br>
                             <p class = 'rootmm' id = "rootmm2">#new types:</p>
                             <input type = 'text' class = 'rooti' id = "rooti2" name = 'root2'/>
+                            <br>
+                            <input type = 'button' id = 'rsubmit2' class = 'rsubmit' value = 'Submit' onclick = "submit2_onclick()"/>
+                            <br>
+                            <p id = 'final2' class = 'final' display></p>
                         </div>
                 </div>
                 <div class="corpus3 box" style = "text-align: center;">
@@ -205,6 +213,10 @@
                         <br>
                         <p class = 'rootmm' id = "rootmm2">#new types:</p>
                         <input type = 'text' id = "rooti3" name = 'root3' class = 'rooti'/>
+                        <br>
+                        <input type = 'button' id = 'rsubmit3' class = 'rsubmit' value = 'Submit' onclick = "submit2_onclick()"/>
+                        <br>
+                        <p id = 'final3' class = 'final' display></p>
                     </div>
                 </div>
             </div>

@@ -19,7 +19,19 @@ $(document).ready(function(){
     }).change();
 });
 
+let answers = [];
+let right = 0;
 
+let flag = true;
+var nouns = ['NN', 'NNP', 'NNPS', 'NNS'];
+var pronouns = ['PRP$', 'PRP', 'WP'];
+var verbs = ['VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ'];
+var adjectives = ['JJ', 'JJS', 'JJR'];
+var adverbs = ['RB', 'RBR', 'RBS', 'WRB'];
+var determiners = ['DT', 'PDT', 'WDT'];
+var prepositions = ['IN'];
+var conjunctions = ['CC'];
+var interjections = ['UH'];
 var corpus = [
     [
         '---Select A Sentence---',
@@ -142,6 +154,9 @@ function on_drop2_select(){
         tickcross.setAttribute('id', 'tc'+i);
         td3.appendChild(tickcross);
 
+        td4.setAttribute('id', 'ans'+i);
+        td4.style.display = 'none';
+
         tr[i].append(td1);
         tr[i].append(td2);
         tr[i].append(td3);
@@ -150,12 +165,13 @@ function on_drop2_select(){
         table.appendChild(tr[i])
 
         document.getElementById('submit1').style.display = 'block';
-        document.addEventListener('click', onclick_submit1());
+        document.addEventListener('click', onclick_submit1);
     }
+}
 
 function onclick_submit1(){
     //var pos = require('pos');
-    document.getElementById('getright');
+    flag = true;
     let e = document.getElementById('drop2');
     let sel = e.options[e.selectedIndex].value;
     let sela = corpus_return(sel);
@@ -163,14 +179,44 @@ function onclick_submit1(){
     var tagger = new POSTagger();
     var taggedWords = tagger.tag(words);
     compare_ans(taggedWords);
+    console.log(right);
+    if(right > 0){
+        document.getElementById('getright').style.display = 'block';
+    }
     
+}
+function compare_ans(words){
+    answers = [];
+    let i = 0;
+    right = 0;
+    console.log(words);
+    for(const val of words){
+        console.log(i);
+        answers.push(val[1]);
+        
+        if(val[1]!='.'){
+            let e = document.getElementById('drop3'+i);
+            console.log(e);
+            let sel = e.options[e.selectedIndex].value;
+            if(sel == get_final(val[1])){
+                console.log(val[1]);
+                document.getElementById('tc'+i).setAttribute('src', 'https://cdn1.vectorstock.com/i/thumb-large/15/05/green-tick-checkmark-icon-vector-22691505.jpg');
+            }
+            else{
+                document.getElementById('tc'+i).setAttribute('src', 'https://thumbs.dreamstime.com/b/wrong-cross-symbol-isolated-wrong-cross-symbol-isolated-white-background-d-render-115034283.jpg');
+                ++right;
+            }
+        }
+        ++i;
+        
+    }
 }
 function corpus_return(a, mode = 1){
     let x = [];
     let b = a.split(' ');
     var patt1 = /[A-Za-z]/g;
     for(let i = 0;i<b.length;++i){
-        if(mode==1 && lang == 0){
+        if(lang == 0){
             try{x.push(b[i].match(patt1).join('').toString().toLowerCase());}
             finally{continue;}
         }
@@ -182,51 +228,69 @@ function corpus_return(a, mode = 1){
     console.log(x);
     return x;
 }
-let flag = True;
-function compare_ans(words){
-    let i = 0;
-    for(const val of taggedWords[1]){
-        if(document.getElementById('drop3'+i).value == get_final(val)){
-            document.getElementById('tc'+i).setAttribute('src', 'https://cdn1.vectorstock.com/i/thumb-large/15/05/green-tick-checkmark-icon-vector-22691505.jpg');
-        }
-        else{
-            document.getElementById('tc'+i).setAttribute('src', 'https://thumbs.dreamstime.com/b/wrong-cross-symbol-isolated-wrong-cross-symbol-isolated-white-background-d-render-115034283.jpg');
-            flag = False;
-        }
-        ++i;
-    }
-}
-var nouns = ['NN', 'NNP', 'NNPS', 'NNS'];
-var pronouns = ['PRP$', 'PRP', 'WP'];
-var verbs = ['VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ'];
-var adjectives = ['JJ', 'JJS', 'JJR'];
-var adverbs = ['RB', 'RBR', 'RBS', 'WRB'];
-var determiners = ['DT', 'PDT', 'WDT'];
-var prepositions = ['IN'];
-var conjunctions = ['CC'];
-var interjections = ['UH'];
+
 
 function get_final(val){
-    
-    if(nouns.includes(val))
-        return 'Nouns';
-    else if(prepositions.includes(val) && lang == 0)
-        return 'Prepositions';
-    else if(prepositions.includes(val) && lang == 1)
-        return 'Postpositions';
-    else if(pronouns.includes(val))
-        return 'Pronouns';
-    else if(verbs.includes(val))
-        return 'Verbs';
-    else if(adverbs.includes(val))
-        return 'Adverbs';
-    else if(adjectives.includes(val))
-        return 'Adjectives';
-    else if(determiners.includes(val))
-        return 'Determiners';
-    else if(conjunctions.includes(val))
-        return 'Conjunctions';
-    else if(interjections.includes(val))
-        return 'Interjections';
 
+    if(nouns.includes(val)){
+        return 'Noun';
     }
+    else if(prepositions.includes(val))
+        {
+            if(lang == 0)
+                return 'Prepositions';
+            else 
+                return 'Propositions';
+        }
+    else if(pronouns.includes(val))
+        {return 'Pronouns';}
+    else if(verbs.includes(val))
+        {return 'Verbs';}
+    else if(adverbs.includes(val))
+        {return 'Adverbs';}
+    else if(adjectives.includes(val))
+        {return 'Adjectives';}
+    else if(determiners.includes(val))
+        {return 'Determiners';}
+    else if(conjunctions.includes(val))
+        {return 'Conjunctions';}
+    else if(interjections.includes(val))
+        {return 'Interjections';}
+    console.log('done');
+
+}
+
+function getanswers_onclick(){
+    let i = 0;
+    for(const val of answers){
+        if (val == '.')
+            break;
+        console.log(val);
+        document.getElementById('ans'+i).style.display = 'block';
+        document.getElementById('ans'+i).innerText = get_final(val);
+        ++i;
+    }
+    document.getElementById('hideright').style.display = 'block';
+    document.getElementById('getright').style.display = 'none';
+
+
+}
+
+function hideanswers_onclick(){
+    let i = 0;
+    for(const val of answers){
+        if(val!='.'){
+            document.getElementById('ans'+i).style.display = 'none';
+            ++i;
+        }
+        else
+            break;
+        
+    } 
+    console.log('exiting');
+    document.getElementById('getright').style.display = 'block';
+    document.getElementById('hideright').style.display = 'none';
+}
+
+
+

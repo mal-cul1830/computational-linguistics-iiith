@@ -114,6 +114,8 @@ function on_drop2_select(){
     th4 = document.createElement('td');
     th4.appendChild(document.createTextNode(''));
     th4.setAttribute('class','ths');
+    th4.setAttribute('id','th');
+    th4.style.display = 'none';
     tr[0].append(th1);
     tr[0].append(th2);
     tr[0].append(th3);
@@ -265,6 +267,7 @@ function getanswers_onclick(){
             break;
         document.getElementById('ans'+i).style.display = 'block';
         document.getElementById('ans'+i).innerText = get_final(val);
+        document.getElementById('th').style.display = 'block';
         ++i;
     }
     document.getElementById('hideright').style.display = 'block';
@@ -280,6 +283,7 @@ function hideanswers_onclick(){
     for(const val of answers){
         if(val!='.'){
             document.getElementById('ans'+i).style.display = 'none';
+            document.getElementById('th').style.display = 'none';
             ++i;
         }
         else

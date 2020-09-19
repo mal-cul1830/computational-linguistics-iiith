@@ -30,16 +30,25 @@ function init(){
 
 }
 
-function corpus_return(a){
+function corpus_return(a, mode = 1){
     let x = [];
-    b = a.split(' ');
+    let b = a.split(' ');
     var patt1 = /[A-Za-z]/g;
     for(let i = 0;i<b.length;++i){
-        try{
-            x.push(b[i].match(patt1).join('').toString().toLowerCase());
-        }finally{
-            continue;
-        }   
+        if(mode==1){
+            try{x.push(b[i].match(patt1).join('').toString().toLowerCase());}
+            finally{continue;}
+        }
+        else{
+            try{
+                var stemmer = new Snowball('English');
+                stemmer.setCurrent(b[i].match(patt1).join('').toString().toLowerCase());
+                stemmer.stem();
+                x.push(stemmer.getCurrent());
+            }
+            finally{continue;}
+        }
+         
     }
     console.log(x);
     return x;
@@ -48,12 +57,12 @@ function get_unique(value, index, self) {
     return self.indexOf(value) === index;
 }
 
-function get_vals(corp){
+function get_vals(corp, mode = 1){
     let crp;
     eval('crp = '+corp);
-    let c1 = corpus_return(crp);
+    let c1 = corpus_return(crp, mode);
     var unique = c1.filter( get_unique );
-    return {'tokens': c1.length,'types': unique.length, 'words':c1};
+    return {'tokens': c1.length,'types': unique.length, 'words':unique};
 }
 
 function submit_onclick(){
@@ -108,8 +117,8 @@ function submit2_onclick(){
 
     let e = document.getElementById('corps');
     let optionValue = e.options[e.selectedIndex].value.split(' ').join().toLowerCase();
-    let d = get_vals(optionValue);
-    console.log(d['words'].length);
+    let d = get_vals(optionValue, 2);
+    /*console.log(d['words'].length);
     let c = [];
     for(let i = 0;i<d['words'].length;++i){
         var stemmer = new Snowball('English');
@@ -124,9 +133,12 @@ function submit2_onclick(){
     console.log(c.length);
     var unique = c.filter( get_unique );
     console.log(unique);
-    console.log(unique.length);
+    console.log(unique.length);*/
+    console.log(d['tokens']);
+    console.log(d['types']);
+    console.log(d['words']);
     try{
-        if(document.getElementById('rooti'+optionValue[6]).value == unique.length){
+        if(document.getElementById('rooti'+optionValue[6]).value == d['types']){
             document.getElementById('rooti'+optionValue[6]).style.backgroundColor = 'green';
             document.getElementById('final'+optionValue[6]).innerText = 'Right Answer';
             document.getElementById('final'+optionValue[6]).style.color = 'green';

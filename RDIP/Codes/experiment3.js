@@ -157,10 +157,11 @@ function on_drop2_select(){
 
         table.appendChild(tr[i])
 
+        document.getElementById('submit1').style.display = 'block';
+        document.addEventListener('click', onclick_submit1());
     }
 
-
-
+function onclick_submit1(){};
     /*var text1 = document.createTextNode('Text1');
     var text2 = document.createTextNode('Text2');
 

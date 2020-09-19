@@ -189,14 +189,12 @@ function compare_ans(words){
     answers = [];
     let i = 0;
     right = 0;
-    console.log(words);
     for(const val of words){
         console.log(i);
         answers.push(val[1]);
         
         if(val[1]!='.'){
             let e = document.getElementById('drop3'+i);
-            console.log(e);
             let sel = e.options[e.selectedIndex].value;
             if(sel == get_final(val[1])){
                 console.log(val[1]);
@@ -265,13 +263,14 @@ function getanswers_onclick(){
     for(const val of answers){
         if (val == '.')
             break;
-        console.log(val);
         document.getElementById('ans'+i).style.display = 'block';
         document.getElementById('ans'+i).innerText = get_final(val);
         ++i;
     }
     document.getElementById('hideright').style.display = 'block';
     document.getElementById('getright').style.display = 'none';
+    console.log('HELPELEPELPELPELPELPLEPLEPL');
+    console.log(document.getElementById('getright').style.display);
 
 
 }
@@ -290,6 +289,8 @@ function hideanswers_onclick(){
     console.log('exiting');
     document.getElementById('getright').style.display = 'block';
     document.getElementById('hideright').style.display = 'none';
+
+    console.log(document.getElementById('getright').style.display);
 }
 
 

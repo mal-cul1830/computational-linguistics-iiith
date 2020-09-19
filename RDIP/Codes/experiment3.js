@@ -56,6 +56,7 @@ var corpus = [
     let e = document.getElementById('lang');
     let optionValue = e.options[e.selectedIndex].value;
     document.getElementById('drop2').style.display = 'block';
+    document.getElementById('tablebody').style.display = 'none';
     if(optionValue == 'eng'){
         create_drop('drop2',corpus[0]);
         lang = 0;
@@ -89,6 +90,10 @@ function on_drop2_select(){
     //adding to the table
 
     var table = document.getElementById('maintable');
+    try{while(table.firstChild) {table.removeChild(table.lastChild);}}
+    finally{
+        console.log('eh');
+    }
     let td1, td2, td3, td4;
     let sela = corpus_return(sel);
     var tr = [];
@@ -113,7 +118,7 @@ function on_drop2_select(){
     table.appendChild(tr[0]);
     
     console.log('creating table');
-    for(let i = 1;i<sela.length;++i){
+    for(let i = 0;i<sela.length;++i){
         tr[i] = document.createElement('tr');
         td1 = document.createElement('td');
         td2 = document.createElement('td');
@@ -126,8 +131,14 @@ function on_drop2_select(){
         console.log('id is '+drop3.getAttribute('id'));
         for(const val of types){
             var option = document.createElement("option");
-            option.value = val;
-            option.text = val.charAt(0).toUpperCase() + val.slice(1);
+            if(lang == 1 && val == 'Prepositions'){
+                option.value = 'Postpositions';
+                option.text = 'Postpositions'.charAt(0).toUpperCase() + 'Postpositions'.slice(1);
+            }else{
+                option.value = val;
+                option.text = val.charAt(0).toUpperCase() + val.slice(1);
+            }
+            
             drop3.appendChild(option);
         }
         td2.appendChild(drop3);
@@ -174,8 +185,12 @@ function on_drop2_select(){
     let b = a.split(' ');
     var patt1 = /[A-Za-z]/g;
     for(let i = 0;i<b.length;++i){
-        if(mode==1){
+        if(mode==1 && lang == 0){
             try{x.push(b[i].match(patt1).join('').toString().toLowerCase());}
+            finally{continue;}
+        }
+        else{
+            try{x.push(b[i]);}
             finally{continue;}
         }
     }

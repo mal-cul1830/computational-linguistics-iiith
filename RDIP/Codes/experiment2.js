@@ -137,6 +137,7 @@ function submit2_onclick(){
     console.log(d['tokens']);
     console.log(d['types']);
     console.log(d['words']);
+    //functionality for comparing
     try{
         if(document.getElementById('rooti'+optionValue[6]).value == d['types']){
             document.getElementById('rooti'+optionValue[6]).style.backgroundColor = 'green';
@@ -152,5 +153,6 @@ function submit2_onclick(){
     finally{
         console.log('error');
     }
+    // end of functionality for comparing
 
 }

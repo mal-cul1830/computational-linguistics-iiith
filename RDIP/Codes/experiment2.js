@@ -41,10 +41,30 @@ function corpus_return(a, mode = 1){
         }
         else{
             try{
-                var stemmer = new Snowball('English');
-                stemmer.setCurrent(b[i].match(patt1).join('').toString().toLowerCase());
-                stemmer.stem();
-                x.push(stemmer.getCurrent());
+                let w = b[i].match(patt1).join('').toString().toLowerCase();
+                if (w == 'the' ||
+                    w == 'of' ||
+                    w == 'to' ||
+                    w == 'very' ||
+                    w == 'does' ||
+                    w == 'off' ||
+                    w == 'me' ||
+                    w == 'you' ||
+                    w == 'up' ||
+                    w == 'can' ||
+                    w == 'than' ||
+                    w == 'did'
+                    )
+                    {
+                        continue;
+                    }
+                    else{
+                        var stemmer = new Snowball('English');
+                        stemmer.setCurrent(w);
+                        stemmer.stem();
+                        x.push(stemmer.getCurrent());
+                    }
+                
             }
             finally{continue;}
         }
@@ -153,6 +173,6 @@ function submit2_onclick(){
     finally{
         console.log('error');
     }
-    // end of functionality for comparing
+    // end offunctionality for comparing
 
 }

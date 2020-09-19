@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>
-            Experiment 1
+            Experiment 2
         </title>
         <style>
             .box{
@@ -34,6 +34,22 @@
             }
             .formed-title{
                 color: rgb(0, 88, 34);
+            }
+            table{
+                background-color: black;
+                color: white;
+                margin: auto;
+                border: solid;
+            }
+
+            table td{
+                width: 100px;
+                padding: 10px 10px;
+            }
+            .root{
+                background-color: black;
+                color: white;
+                padding: 15px 15px;
             }
         </style>
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -80,7 +96,7 @@
                     <br>
                     <hr>
                     <p class = "mes1">Enter the correct number of tokens and types from the corpus:</p>
-                    <table style = "align-self: center;margin: 0 auto;">
+                    <table>
                         <tr>
                             <td>
                                 #tokens
@@ -117,6 +133,7 @@
                         <br>
                         <p id = "rootmm1">#new types:</p>
                         <input type = 'text' id = "rooti1" name = 'root1' class = 'rooti'/>
+                        <br>
                         <br>
                         <input type = 'button' id = 'rsubmit1' class = 'rsubmit' value = 'Submit' onclick = "submit2_onclick()"/>
                         <br>
@@ -168,6 +185,7 @@
                             <br>
                             <input type = 'button' id = 'rsubmit2' class = 'rsubmit' value = 'Submit' onclick = "submit2_onclick()"/>
                             <br>
+                            <br>
                             <p id = 'final2' class = 'final' display></p>
                         </div>
                 </div>
@@ -215,6 +233,7 @@
                         <input type = 'text' id = "rooti3" name = 'root3' class = 'rooti'/>
                         <br>
                         <input type = 'button' id = 'rsubmit3' class = 'rsubmit' value = 'Submit' onclick = "submit2_onclick()"/>
+                        <br>
                         <br>
                         <p id = 'final3' class = 'final' display></p>
                     </div>

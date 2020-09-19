@@ -42,15 +42,6 @@ var corpus = [
 
   var types = ['Noun', 'Pronouns', 'Verbs', 'Adjectives', 'Adverbs', 'Determiners', 'Prepositions', 'Conjunctions', 'Interjections'];
   
-  var nouns = ['NN', 'NNP', 'NNPS', 'NNS'];
-  var pronouns = ['PRP$', 'PRP', 'WP'];
-  var verbs = ['VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ'];
-  var adjectives = ['JJ', 'JJS', 'JJR'];
-  var adverbs = ['RB', 'RBR', 'RBS', 'WRB'];
-  var determiners = ['DT', 'PDT', 'WDT'];
-  var prepositions = ['IN'];
-  var conjunctions = ['CC'];
-  var interjections = ['UH'];
 
   function on_drop1_select(){
     let e = document.getElementById('lang');
@@ -148,6 +139,7 @@ function on_drop2_select(){
         tickcross.setAttribute('height', '30px');
         tickcross.setAttribute('display', 'none');
         tickcross.setAttribute('src','https://www.landfx.com/images/docs/kb/installation-errors/4019/blank%20welcome.PNG');
+        tickcross.setAttribute('id', 'tc'+i);
         td3.appendChild(tickcross);
 
         tr[i].append(td1);
@@ -161,27 +153,19 @@ function on_drop2_select(){
         document.addEventListener('click', onclick_submit1());
     }
 
-function onclick_submit1(){};
-    /*var text1 = document.createTextNode('Text1');
-    var text2 = document.createTextNode('Text2');
-
-    for (var i = 1; i < 4; i++){
-        tr[i] = document.createElement('tr');   
-        for (var j = 1; j < 4; j++){
-            td1.appendChild(text1);
-            td2.appendChild(text2);
-            tr[i].appendChild(td1);
-            tr[i].appendChild(td2);
-        }           
-        table.appendChild(tr[i]);
-
-    }
-
-    tablearea.appendChild(table);*/
-
-  }
-
-  function corpus_return(a, mode = 1){
+function onclick_submit1(){
+    //var pos = require('pos');
+    document.getElementById('getright');
+    let e = document.getElementById('drop2');
+    let sel = e.options[e.selectedIndex].value;
+    let sela = corpus_return(sel);
+    var words = new Lexer().lex(sel); //You have to enter the sentences here
+    var tagger = new POSTagger();
+    var taggedWords = tagger.tag(words);
+    compare_ans(taggedWords);
+    
+}
+function corpus_return(a, mode = 1){
     let x = [];
     let b = a.split(' ');
     var patt1 = /[A-Za-z]/g;
@@ -198,3 +182,51 @@ function onclick_submit1(){};
     console.log(x);
     return x;
 }
+let flag = True;
+function compare_ans(words){
+    let i = 0;
+    for(const val of taggedWords[1]){
+        if(document.getElementById('drop3'+i).value == get_final(val)){
+            document.getElementById('tc'+i).setAttribute('src', 'https://cdn1.vectorstock.com/i/thumb-large/15/05/green-tick-checkmark-icon-vector-22691505.jpg');
+        }
+        else{
+            document.getElementById('tc'+i).setAttribute('src', 'https://thumbs.dreamstime.com/b/wrong-cross-symbol-isolated-wrong-cross-symbol-isolated-white-background-d-render-115034283.jpg');
+            flag = False;
+        }
+        ++i;
+    }
+}
+var nouns = ['NN', 'NNP', 'NNPS', 'NNS'];
+var pronouns = ['PRP$', 'PRP', 'WP'];
+var verbs = ['VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ'];
+var adjectives = ['JJ', 'JJS', 'JJR'];
+var adverbs = ['RB', 'RBR', 'RBS', 'WRB'];
+var determiners = ['DT', 'PDT', 'WDT'];
+var prepositions = ['IN'];
+var conjunctions = ['CC'];
+var interjections = ['UH'];
+
+function get_final(val){
+    
+    if(nouns.includes(val))
+        return 'Nouns';
+    else if(prepositions.includes(val) && lang == 0)
+        return 'Prepositions';
+    else if(prepositions.includes(val) && lang == 1)
+        return 'Postpositions';
+    else if(pronouns.includes(val))
+        return 'Pronouns';
+    else if(verbs.includes(val))
+        return 'Verbs';
+    else if(adverbs.includes(val))
+        return 'Adverbs';
+    else if(adjectives.includes(val))
+        return 'Adjectives';
+    else if(determiners.includes(val))
+        return 'Determiners';
+    else if(conjunctions.includes(val))
+        return 'Conjunctions';
+    else if(interjections.includes(val))
+        return 'Interjections';
+
+    }
